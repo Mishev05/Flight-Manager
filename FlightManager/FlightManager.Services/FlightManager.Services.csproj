@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlightManager.Common\FlightManager.Common.csproj" />
+    <ProjectReference Include="..\FlightManager.Data\FlightManager.Data.csproj" />
+    <ProjectReference Include="..\FlightManager.ViewModels\FlightManager.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

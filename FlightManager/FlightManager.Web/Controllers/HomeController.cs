@@ -1,5 +1,5 @@
-using FlightManager.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using FlightManager.ViewModels.Shared;
 using System.Diagnostics;
 
 namespace FlightManager.Web.Controllers
