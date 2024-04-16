@@ -18,6 +18,14 @@ namespace FlightManager.ViewModels.Users
         public string LastName { get; set; }
 
         [Required]
+        [Display(Name = "Phone number")]
+        public string PhoneNum { get; set; }
+
+        [Required]
+        [Display(Name = "PIN")]
+        public string PIN { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }

@@ -21,4 +21,8 @@
     <ProjectReference Include="..\FlightManager.ViewModels\FlightManager.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Reservations\" />
+  </ItemGroup>
+
 </Project>

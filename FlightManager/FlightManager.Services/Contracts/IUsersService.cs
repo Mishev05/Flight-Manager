@@ -10,6 +10,8 @@ namespace FlightManager.Services.Contracts
 {
     public interface IUsersService
     {
+        //public void SeedUserRoles();
+        //public void SeedRoles();
         public Task<string> CreateUserAsync(CreateUserViewModel model);
 
         public Task<bool> DeleteUserAsync(string id);

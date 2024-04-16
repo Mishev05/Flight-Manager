@@ -38,6 +38,28 @@ namespace FlightManager.Services
             this.signInManager = signInManager;
         }
 
+        //public void SeedRoles()
+        //{
+        //    string[] roles = { "Admin", "User" };
+
+        //    if (!context.Roles.Any(r => r.Name == "admin"))
+        //    {
+        //        foreach (string role in roles)
+        //        {
+        //            IdentityRole identityRole = new IdentityRole()
+        //            {
+        //                Name = role,
+        //                NormalizedName = role.ToLower()
+        //            };
+
+        //            if (!context.Roles.Any(r => r.Name == role))
+        //            {
+        //                context.Roles.Add(identityRole);
+        //            }
+        //        }
+        //    }
+        //    context.SaveChanges();
+        //}
         public async Task<string> CreateUserAsync(CreateUserViewModel model)
         {
             User user = new User()
@@ -45,8 +67,11 @@ namespace FlightManager.Services
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Email = model.Email,
-                UserName = model.Email
+                UserName = model.Email,
+                PIN=model.PIN,
+                
             };
+
 
             var result = await userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
@@ -66,6 +91,35 @@ namespace FlightManager.Services
             }
             return user.Id;
         }
+        //public void SeedUserRoles()
+        //{
+        //    var getAdminId = context.Roles.FirstOrDefault(x => x.Name == "Admin");
+        //    var Roles = new IdentityUserRole<string>();
+        //    var user = new User()
+        //    {
+        //        UserName = "Admin",
+        //        FirstName = "Admin",
+        //        LastName = "Admin",
+        //        PIN = "0000000000",
+        //        Address = "Everywhere",
+        //        Email = "admin@gmail.com",
+        //        PhoneNumber = "0888888888",
+        //        Id = Guid.NewGuid().ToString()
+        //    };
+
+        //    if (!context.Users.Any(u => u.UserName == user.UserName))
+        //    {
+        //        Roles.RoleId = getAdminId.Id;
+        //        Roles.UserId = user.Id;
+        //        var password = new PasswordHasher<User>();
+        //        var hashed = password.HashPassword(user, "password");
+        //        user.PasswordHash = hashed;
+        //        context.Users.Add(user);
+        //        context.UserRoles.Add(Roles);
+        //    }
+
+        //    context.SaveChanges();
+        //}
 
         public async Task<bool> DeleteUserAsync(string id)
         {

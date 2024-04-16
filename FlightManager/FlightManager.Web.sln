@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManager.Data", "Fligh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManager.Common", "FlightManager.Common\FlightManager.Common.csproj", "{939702B8-CC08-4E47-9685-98BA7566DACB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.Services", "FlightManager.Services\FlightManager.Services.csproj", "{1A68B0DD-42F3-4F67-8712-96091883CB83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManager.Services", "FlightManager.Services\FlightManager.Services.csproj", "{1A68B0DD-42F3-4F67-8712-96091883CB83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManager.ViewModels", "FlightManager.ViewModels\FlightManager.ViewModels.csproj", "{76676DD5-6459-46FD-BC76-981D47B82CF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightManager.ViewModels", "FlightManager.ViewModels\FlightManager.ViewModels.csproj", "{76676DD5-6459-46FD-BC76-981D47B82CF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
