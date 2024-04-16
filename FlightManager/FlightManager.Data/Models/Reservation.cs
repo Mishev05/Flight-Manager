@@ -32,8 +32,7 @@ namespace FlightManager.Data.Models
         public string Nationality { get; set; }
 
         [Required]
-        public int TicketTypeId { get; set; }
-        public virtual TicketType TicketType { get; set; }
+        public string TicketType { get; set; }
 
         public int FlightId { get; set; }
         public Flight Flight { get; set; }

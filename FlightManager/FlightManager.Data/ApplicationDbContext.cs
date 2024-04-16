@@ -31,7 +31,6 @@ namespace FlightManager.Data
 
         public virtual DbSet<Flight> Flights { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
-        public virtual DbSet<TicketType> TicketTypes { get; set; }
 
 
     }
