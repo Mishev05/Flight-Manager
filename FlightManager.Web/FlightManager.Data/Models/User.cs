@@ -31,6 +31,6 @@ namespace FlightManager.Data.Models
 
         public string Address { get; set; }
         public string UCN { get; set; }
-        public string MainRole { get; set; }
+        public string? MainRole { get; set; }
     }
 }

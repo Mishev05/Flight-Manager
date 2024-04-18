@@ -38,7 +38,9 @@ namespace VacationManagerApp.Web
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
+
             builder.Services.AddTransient<IUserService, UserService>();
+            builder.Services.AddTransient<IFlightService, FlightService>();
 
             var app = builder.Build();
 

@@ -1,0 +1,48 @@
+﻿@model DetailsUserViewModel
+
+
+<h2>User Details</h2>
+
+<table class="user-details-table">
+    <tr>
+        <th></th>
+        <th>Data</th>
+    </tr>
+    <tr>
+        <td>Id:</td>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <td>Name:</td>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <td>PhoneNumber:</td>
+        <td>@Model.PhoneNumber</td>
+    </tr>
+    <tr>
+        <td>UCN:</td>
+        <td>@Model.UCN</td>
+    </tr>
+    <tr>
+        <td>Address:</td>
+        <td>@Model.Address</td>
+    </tr>
+    <tr>
+        <td>NationalId:</td>
+        <td>@Model.NationalId</td>
+    </tr>
+    <tr>
+        <td>Role:</td>
+        <td>@Model.Role</td>
+    </tr>
+</table>
+
+<div class="button-container">
+    <a class="edit-button" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+    <a class="back-button" asp-action="Index">Back to List</a>
+</div>

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace FlightManager.Web.Data.Migrations
+namespace FlightManager.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -24,6 +24,47 @@ namespace FlightManager.Web.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("FlightManager.Data.Models.Flight", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("ArrivalTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ArrivalTown")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DepartureTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DepartureTown")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PilotName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PlaneBusinessCapacity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PlaneRegularCapacity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PlaneType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UniquePlaneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Flights");
+                });
 
             modelBuilder.Entity("FlightManager.Data.Models.User", b =>
                 {
@@ -65,7 +106,6 @@ namespace FlightManager.Web.Data.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("MainRole")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NationalId")

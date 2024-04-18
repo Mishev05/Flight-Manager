@@ -1,0 +1,58 @@
+﻿@model IndexFlightsViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Flights</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               From
+            </th>
+            <th>
+                To
+            </th>
+            <th>
+                Departure Time
+            </th>
+            <th>
+                Arrival Time
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var flight in Model.Flights)
+            {
+                <tr>
+                    <td>
+                        @flight.DepartureFrom
+                    </td>
+                <td>
+                    @flight.ArrivalTo
+                </td>
+                <td>
+                    @flight.DepartureTime
+                </td>
+                <td>
+                    @flight.ArrivalTime
+                </td>
+                    <td>
+                        <a asp-action="Details" asp-action="Details" asp-route-id="@flight.Id" class="btn btn-sm btn-success">Details</a>
+                        <a asp-action="Edit" asp-action="Edit" asp-route-id="@flight;.Id" class="btn btn-sm btn-secondary">Edit</a>
+                        <a asp-action="Delete" asp-action="Delete" asp-route-id="@flight.Id" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        
+        
+    </tbody>
+</table>
+
+<partial name="_PagingPartial" />

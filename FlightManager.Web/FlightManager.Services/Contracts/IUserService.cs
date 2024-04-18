@@ -17,10 +17,10 @@ namespace FlightManager.Services.Contracts
 
         public Task<int> GetUsersCountAsync();
 
-        //public Task<DetailsUserViewModel?> GetUserDetailsAsync(string id);
+        public Task<DetailsUserViewModel?> GetUserDetailsAsync(string id);
 
-        //public Task<EditUserViewModel?> GetUserToEditAsync(string id);
+        public Task<EditUserViewModel?> GetUserToEditAsync(string id);
 
-        //public Task<string> UpdateUserAsync(EditUserViewModel user);
+        public Task<string> UpdateUserAsync(EditUserViewModel user);
     }
 }

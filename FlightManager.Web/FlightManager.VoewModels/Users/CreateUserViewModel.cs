@@ -29,7 +29,7 @@ namespace FlightManager.ViewModels.Users
 
         public string PhioneNumber { get; set; }
 
-        public string Role { get; set; }
+        public string? Role { get; set; }
 
 
         [Required]
