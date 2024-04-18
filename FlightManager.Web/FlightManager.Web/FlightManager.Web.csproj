@@ -11,8 +11,16 @@
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FlightManager.Common\FlightManager.Common.csproj" />
+    <ProjectReference Include="..\FlightManager.Data\FlightManager.Data.csproj" />
+    <ProjectReference Include="..\FlightManager.Services\FlightManager.Services.csproj" />
+    <ProjectReference Include="..\FlightManager.VoewModels\FlightManager.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

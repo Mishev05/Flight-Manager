@@ -1,4 +1,4 @@
-namespace FlightManager.ViewModels.Shared
+namespace FlightManager.VoewModels.Shared
 {
     public class ErrorViewModel
     {

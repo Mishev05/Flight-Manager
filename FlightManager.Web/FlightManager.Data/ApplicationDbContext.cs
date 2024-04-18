@@ -1,13 +1,26 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using FlightManager.Data.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace FlightManager.Web.Data
+namespace FlightManager.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<User>
     {
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
+
+        public ApplicationDbContext()
+        {
+
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+        }
+
+        public virtual DbSet<User> Users { get; set; }
     }
 }
