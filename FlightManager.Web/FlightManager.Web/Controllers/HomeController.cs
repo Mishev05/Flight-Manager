@@ -1,4 +1,4 @@
-using FlightManager.VoewModels.Shared;
+using FlightManager.ViewModels.Shared;
 using FlightManager.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
