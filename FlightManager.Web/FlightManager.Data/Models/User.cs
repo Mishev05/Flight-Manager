@@ -33,27 +33,5 @@ namespace FlightManager.Data.Models
         public string Address { get; set; }
         public string UCN { get; set; }
         public string? MainRole { get; set; }
-
-
-
-        //safafsaf
-        //    asf
-        //    asf
-        //    as
-        //    CallConvFastcallff
-        //    sf
-        //    fas
-        //    ffas
-        //    fas
-        //    fa
-        //    sfa
-        //    sfa
-        //    sf
-        //    asf
-        //    af3
-        //    r1
-        //    af
-        //    asczxvzxvfas
-
     }
 }
