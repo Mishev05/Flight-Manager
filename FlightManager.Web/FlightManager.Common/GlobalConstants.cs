@@ -8,6 +8,7 @@ namespace FlightManager.Common
 {
     public class GlobalConstants
     {
+        //Create Global constants
         public const string AdminRole = "Admin";
         public const string UserRole = "User";
     }

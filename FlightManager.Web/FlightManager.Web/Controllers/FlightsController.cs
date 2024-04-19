@@ -27,11 +27,14 @@ namespace FlightManager.Web.Controllers
             return View(model);
         }
 
+        //Get
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
+
+        //Set
         [HttpPost]
         public async Task<IActionResult> Create(CreateFlightViewModel model)
         {
