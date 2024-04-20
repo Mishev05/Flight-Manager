@@ -1,0 +1,85 @@
+﻿@model FlightDetailsViewModel
+
+<style>
+    .user-details-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+        .user-details-table th,
+        .user-details-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .user-details-table th {
+            background-color: #f2f2f2;
+        }
+
+    .button-container {
+        margin-top: 20px;
+    }
+
+    .edit-button,
+    .back-button {
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-right: 10px;
+    }
+
+        .edit-button:hover,
+        .back-button:hover {
+            background-color: #4AB038;
+        }
+</style>
+
+<h2>Flight Details</h2>
+
+<table class="user-details-table">
+    <tr>
+        <th></th>
+        <th>Data</th>
+    </tr>
+    <tr>
+        <td>Id:</td>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <td>Departure town:</td>
+        <td>@Model.DepartureTown</td>
+    </tr>
+    <tr>
+        <td>Arrival town:</td>
+        <td>@Model.ArrivalTown</td>
+    </tr>
+    <tr>
+        <td>Departure time:</td>
+        <td>@Model.DepartureTime</td>
+    </tr>
+    <tr>
+        <td>Arrival time:</td>
+        <td>@Model.ArrivalTime</td>
+    </tr>
+    <tr>
+        <td>Plane type:</td>
+        <td>@Model.PlaneType</td>
+    </tr>
+    <tr>
+        <td>Regular capacity:</td>
+        <td>@Model.RegularCapacity</td>
+    </tr>
+    <tr>
+        <td>Business capacity:</td>
+        <td>@Model.BusinessCapacity</td>
+    </tr>
+</table>
+
+<div class="button-container">
+    <a class="edit-button" asp-action="Edit" asp-route-id="@Model?.Id">Edit</a>
+    <a class="back-button" asp-action="Index">Back to List</a>
+</div>

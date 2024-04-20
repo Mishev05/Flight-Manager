@@ -41,6 +41,7 @@ namespace VacationManagerApp.Web
 
             builder.Services.AddTransient<IUserService, UserService>();
             builder.Services.AddTransient<IFlightService, FlightService>();
+            builder.Services.AddTransient<IReservationService, ReservationService>();
 
             var app = builder.Build();
 

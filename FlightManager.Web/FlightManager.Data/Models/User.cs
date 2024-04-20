@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,12 +17,12 @@ namespace FlightManager.Data.Models
 
         [Required]
         [MaxLength(60)]
-        [Display(Name = "Име")]
+        [Display(Name = "First name")]
         public string FirstName { get; set; }
 
         [Required]
         [MaxLength(60)]
-        [Display(Name = "Фамилия")]
+        [Display(Name = "Last name")]
         public string LastName { get; set; }
 
         [Required]
@@ -33,5 +32,6 @@ namespace FlightManager.Data.Models
         public string Address { get; set; }
         public string UCN { get; set; }
         public string? MainRole { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
     }
 }

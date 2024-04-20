@@ -18,5 +18,6 @@ namespace FlightManager.Data.Models
         public string?  PilotName { get; set; }
         public int PlaneRegularCapacity { get; set; }
         public int PlaneBusinessCapacity { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }=new List<Reservation>();
     }
 }

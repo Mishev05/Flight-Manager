@@ -41,7 +41,7 @@ namespace FlightManager.Services
                 Address = model.Address,
                 UCN = model.UCN,
                 PhoneNumber = model.PhioneNumber,
-                MainRole = model.Role
+                MainRole=model.Role
             };
 
             var result = await userManager.CreateAsync(user, model.Password);
@@ -95,7 +95,7 @@ namespace FlightManager.Services
                     Id = x.Id,
                     FirstName = x.FirstName,
                     LastName = x.LastName,
-                    Role = x.MainRole
+                    Role= x.MainRole
                 })
                 .ToListAsync();
 
@@ -123,9 +123,9 @@ namespace FlightManager.Services
                     Name = $"{user.FirstName} {user.LastName}",
                     Email = user.Email != null ? user.Email : "n/a",
                     Role = user.MainRole,
-                    Address = user.Address,
-                    PhoneNumber = user.PhoneNumber,
-                    UCN = user.UCN
+                    Address=user.Address,
+                    PhoneNumber=user.PhoneNumber,
+                    UCN= user.UCN
                 };
             }
             return result;
@@ -148,8 +148,8 @@ namespace FlightManager.Services
                     Id = user.Id,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
-                    PhoneNumber = user.PhoneNumber,
-                    Address = user.Address
+                    PhoneNumber=user.PhoneNumber,
+                    Address=user.Address
                 };
             }
 

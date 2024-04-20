@@ -1,6 +1,7 @@
 ﻿using FlightManager.Common;
 using FlightManager.Services.Contracts;
 using FlightManager.ViewModels.Users;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
@@ -14,6 +15,7 @@ namespace FlightManager.Web.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = GlobalConstants.AdminRole)]
         public async Task<IActionResult> Index(IndexUsersViewModel? model)
         {
 
@@ -53,12 +55,12 @@ namespace FlightManager.Web.Controllers
                           ConfirmPassword = Password,
                           Email = $"user{i}@app.bg",
                           NationalId = "0000000000",
-                          Address = $"Adress {i}",
-                          UCN = "0000000000",
-                          PhioneNumber = "0000000000",
+                          Address=$"Adress {i}",
+                          UCN="0000000000",
+                          PhioneNumber="0000000000",
                           Role = GlobalConstants.UserRole
                       }
-                      );
+                      ) ;
             }
             return RedirectToAction(nameof(Index));
         }

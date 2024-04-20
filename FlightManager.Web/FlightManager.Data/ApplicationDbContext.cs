@@ -20,8 +20,9 @@ namespace FlightManager.Data
         {
             base.OnConfiguring(optionsBuilder);
         }
-        //DbSets 
+
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Flight> Flights { get; set; }
+        public virtual DbSet<Reservation> Reservations { get; set; }
     }
 }
