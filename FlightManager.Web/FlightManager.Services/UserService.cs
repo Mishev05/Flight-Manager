@@ -67,7 +67,7 @@ namespace FlightManager.Services
             return user.Id;
         }
 
-        //Delete user
+        //Delete User
         public async Task<bool> DeleteUserAsync(string id)
         {
             User? user = await GetUserByIdAsync(id);
@@ -78,7 +78,8 @@ namespace FlightManager.Services
             }
             return false;
         }
-
+        
+        //Get User
         public async Task<IndexUsersViewModel> GetUsersAsync(IndexUsersViewModel users)
         {
             if (users == null)
