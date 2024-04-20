@@ -29,6 +29,7 @@ namespace FlightManager.Services
             this.signInManager = signInManager;
         }
 
+        //CreateUser
         public async Task<string> CreateUserAsync(CreateUserViewModel model)
         {
             User user = new User()
@@ -79,7 +80,7 @@ namespace FlightManager.Services
             return false;
         }
         
-        //Get User
+        //Get Users
         public async Task<IndexUsersViewModel> GetUsersAsync(IndexUsersViewModel users)
         {
             if (users == null)
@@ -104,11 +105,13 @@ namespace FlightManager.Services
             return users;
         }
 
+        //GetUsersCount
         public async Task<int> GetUsersCountAsync()
         {
             return await userManager.Users.CountAsync();
         }
 
+        //GetUserDetails
         public async Task<DetailsUserViewModel?> GetUserDetailsAsync(string id)
         {
             DetailsUserViewModel? result = null;
@@ -132,11 +135,15 @@ namespace FlightManager.Services
             }
             return result;
         }
+
+        //GetUserById
         private async Task<User> GetUserByIdAsync(string id)
         {
             return await userManager.Users.FirstOrDefaultAsync(u => u.Id == id);
         }
 
+
+        //GetUserToEdit
         public async Task<EditUserViewModel?> GetUserToEditAsync(string id)
         {
             EditUserViewModel? result = null;
@@ -158,6 +165,8 @@ namespace FlightManager.Services
             return result;
         }
 
+
+        //UpdateUser
         public async Task<string> UpdateUserAsync(EditUserViewModel user)
         {
             User? oldUser = await GetUserByIdAsync(user.Id);
