@@ -6,7 +6,7 @@ using FlightManager.Data;
 using FlightManager.Services.Contracts;
 using FlightManager.Services;
 
-namespace VacationManagerApp.Web
+namespace FlightManager.Web
 {
     public class Program
     {

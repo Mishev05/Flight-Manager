@@ -48,7 +48,7 @@ namespace FlightManager.Services
 
             return model;
         }
-        //GetFlightsCount
+
         public async Task<int> GetFlightCountAsync()
         {
             return await context.Flights.CountAsync();

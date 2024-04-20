@@ -14,7 +14,7 @@ namespace FlightManager.ViewModels.Reservations
         public string LastName { get; set; }
         public string UCN { get; set; }
         public string PhoneNumber { get; set; }
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
         public string? Nationality { get; set; }
         public string TicketType { get; set; }
         public string FlightId { get; set; }

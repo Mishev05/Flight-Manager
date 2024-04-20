@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using FlightManager.Services.Contracts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FlightManager.Web.Controllers
 {
@@ -15,35 +16,35 @@ namespace FlightManager.Web.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IReservationService reservationService;
         private readonly Microsoft.AspNetCore.Identity.UserManager<User> userManager;
-
         public ReservationsController(ApplicationDbContext context, IReservationService reservationService, UserManager<User> userManager)
         {
             _context = context;
             this.reservationService = reservationService;
             this.userManager = userManager;
         }
-        public IActionResult Index()
+        [Authorize]
+        public async Task<IActionResult> Index(IndexReservationsViewModel model)
         {
-            return View();
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            model.UserId = userId;
+            model = await reservationService.GetMyRegistrationsAsync(model);
+            return View(model);
+
         }
         public async Task<IActionResult> Create(string id)
         {
-            var model= await reservationService.GetReservationsToAddAsync(id);
-            return View(model);
+            ViewData["FlightId"] = id;
+            return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Create(CreateReservationViewModel model)
         {
-            Flight flight = await _context.Flights.FirstOrDefaultAsync(x => x.Id == model.FlightId);
-            model.Flight=flight;
             model.UserId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            if (ModelState.IsValid)
-            {
-                await reservationService.AddReservationAsync(model);
-                return RedirectToAction(nameof(Index));
-            }
-            return View(model);
+
+            await reservationService.AddReservationAsync(model);
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }

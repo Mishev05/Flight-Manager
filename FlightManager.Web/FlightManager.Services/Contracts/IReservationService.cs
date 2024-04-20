@@ -11,5 +11,7 @@ namespace FlightManager.Services.Contracts
     {
         public Task<int> AddReservationAsync(CreateReservationViewModel model);
         public Task<CreateReservationViewModel> GetReservationsToAddAsync(string id);
+        public Task<IndexReservationsViewModel> GetMyRegistrationsAsync(IndexReservationsViewModel model);
+        public Task<int> GetMyReservationCountAsync(string userId);
     }
 }

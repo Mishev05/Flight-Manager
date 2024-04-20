@@ -32,11 +32,11 @@ namespace FlightManager.Services
         {
             CreateReservationViewModel? result = null;
 
-            Flight flight= await context.Flights.FirstOrDefaultAsync(x=>x.Id==id);
+            Flight flight = await context.Flights.FirstOrDefaultAsync(x => x.Id == id);
 
             result = new CreateReservationViewModel()
             {
-                FlightId=flight.Id
+                FlightId = flight.Id
             };
 
             return result;
@@ -50,15 +50,16 @@ namespace FlightManager.Services
             {
                 reservation = new Reservation()
                 {
-                    FirstName=model.Firstname,
-                    MiddleName=model.MiddleName,
-                    LastName=model.LastName,
-                    UCN=model.UCN,
-                    PhoneNumber=model.PhoneNumber,
-                    Nationality=model.Nationality,
-                    FlightId=model.FlightId,
-                    TicketType=model.TicketType,
-                    Flight=f
+                    UserId = model.UserId,
+                    FirstName = model.Firstname,
+                    MiddleName = model.MiddleName,
+                    LastName = model.LastName,
+                    UCN = model.UCN,
+                    PhoneNumber = model.PhoneNumber,
+                    Nationality = model.Nationality,
+                    FlightId = model.FlightId,
+                    TicketType = model.TicketType,
+                    Flight = f
                 };
 
 
@@ -68,6 +69,32 @@ namespace FlightManager.Services
             return await context.SaveChangesAsync();
 
         }
+        public async Task<IndexReservationsViewModel> GetMyRegistrationsAsync(IndexReservationsViewModel model)
+        {
+            User? user = await userManager.FindByIdAsync(model.UserId);
+            IQueryable<Reservation> reservations = null;
 
+            reservations = context.Reservations
+                 .Where(x => x.UserId == model.UserId);
+            model.ElementsCount = await GetMyReservationCountAsync(model.UserId);
+
+            model.Registartions = await
+                reservations
+                .Skip((model.Page - 1) * model.ItemsPerPage)
+                .Take(model.ItemsPerPage)
+                .Select(x => new IndexReservationViewModel()
+                {
+                    Id = x.Id,
+                    FullName = $"{x.User.FirstName} {x.User.LastName}",
+                    FligthInfo = $"{x.Flight.DepartureTown} - {x.Flight.ArrivalTown}"
+                })
+                .ToListAsync();
+
+            return model;
+        }
+        public async Task<int> GetMyReservationCountAsync(string userId)
+        {
+            return context.Reservations.Count(x => x.UserId == userId);
+        }
     }
 }

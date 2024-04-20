@@ -1,5 +1,34 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IndexReservationsViewModel
+
 @{
+    ViewData["Title"] = "Index";
 }
+
+<h1>Reservations</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Full name
+            </th>
+            <th>
+                Flight (from - to)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Registartions)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FligthInfo)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<partial name="_PagingPartial" />
